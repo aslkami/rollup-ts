@@ -21,3 +21,13 @@ let c = new Cat()
 // console.log(Cat.getName())
 
 export { }
+
+interface Fate {
+  (name: string): any
+}
+
+class Stay {
+  constructor() {
+
+  }
+}

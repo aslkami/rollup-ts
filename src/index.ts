@@ -1,7 +1,7 @@
 // import './enum'
 import './class'
-
-
+import './装包和拆包.ts'
+// import './symbol'
 
 
 
@@ -29,3 +29,5 @@ let person1 = {
 }
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
 type OmitAddress = Omit<typeof person1, 'address'>
+
+// export {}

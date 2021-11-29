@@ -61,6 +61,38 @@
     }(Animal));
     new Cat();
 
+    var props = {
+        name: 'zhufeng',
+        age: 11
+    };
+    function proxify(obj) {
+        var result = {};
+        var _loop_1 = function (key) {
+            var value = obj[key];
+            result[key] = {
+                get: function () {
+                    return value;
+                },
+                set: function (newValue) { return value = newValue; }
+            };
+        };
+        for (var key in obj) {
+            _loop_1(key);
+        }
+        return result;
+    }
+    var proxpProps = proxify(props);
+    // 拆包
+    function unProxify(proxpProps) {
+        var result = {};
+        for (var key in proxpProps) {
+            var value = proxpProps[key];
+            result[key] = value.get();
+        }
+        return result;
+    }
+    unProxify(proxpProps);
+
     // import './enum'
     function map(obj, callback) {
         var result = {};
@@ -72,6 +104,7 @@
     map({ name: 'zf', age: 11 }, function (item, key) {
         return item;
     });
+    // export {}
 
 }());
 //# sourceMappingURL=bundle.js.map
