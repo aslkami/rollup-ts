@@ -1,5 +1,6 @@
 // 合并两个对象类型T以及K，如果属性重复，则以K中属性类型为准；
-type Merge<T, K> = { [k in Exclude<keyof T, keyof K>]: T[k] } & K
+// type Merge<T, K> = { [k in Exclude<keyof T, keyof K>]: T[k] } & K
+type Merge<T, K> = Omit<T, keyof K> & K
 
 type obj1 = {
     el: string,

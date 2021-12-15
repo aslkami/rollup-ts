@@ -1,7 +1,7 @@
 // 保留一个对象中的可选属性类型
-type ExcludeUndefined<T>= {[K in keyof T]:Exclude<T[K],undefined>}
-type OptionalKeys<T, K = keyof T> = K extends keyof T ? (undefined extends ExcludeUndefined<T>[K] ? K : never) : never
-
+// type ExcludeUndefined<T>= {[K in keyof T]:Exclude<T[K],undefined>}
+// type OptionalKeys<T, K = keyof T> = K extends keyof T ? (undefined extends ExcludeUndefined<T>[K] ? K : never) : never
+import { OptionalKeys }  from './27.OptionalKeys'
 export type PickOptional<T> = Pick<T,OptionalKeys<T>>;
 
 type a1 = PickOptional<{ foo: number | undefined, bar?: string, flag: boolean }>        // {bar?:string|undefined}
